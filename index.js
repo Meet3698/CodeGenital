@@ -15,7 +15,8 @@ const methodOverride = require('method-override');
 const compiler = require('compilex');
 const {c, cpp, node, python, java} = require('compile-run');
 const options = {stats : true}; 
-const port = process.env.port || 3000;
+const port = process.env.PORT || 3000
+
 compiler.init(options);
 const fs = require('fs');
 const morgan = require('morgan');

@@ -51,7 +51,7 @@ app.use(cors());
 app.use(methodOverride('_method'));
 
 const storage = new GridFsStorage({
-  url: 'mongodb://localhost/CodeGenital',
+  url: 'mongodb+srv://meet:Meet@3698@anonymous-edqd9.mongodb.net/CodeGenital?retryWrites=true&w=majority',
   file: (req, file) => {
     return new Promise((resolve, reject) => {
       crypto.randomBytes(16, (err, buf) => {

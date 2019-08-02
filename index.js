@@ -448,7 +448,7 @@ app.post('/authenticate', function(req, res) {
         res.json({success:false});
         
       } else {
-        if (user.validPassword(req.body.password)) {
+        if (User.validPassword(req.body.password)) {
           const sess = req.session;
           sess.email = req.body.email;
           console.log("Login Successful!");

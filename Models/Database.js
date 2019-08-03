@@ -17,7 +17,7 @@ email: {
 password: {
   type: String,
   required: true,
-  minlength: 8
+  // minlength: 8
 },
 
 points:{
@@ -36,9 +36,21 @@ UsersSchema.methods.generateHash = function(password){
 }
 */
 
-UsersSchema.methods.validPassword = function(password) {
-  return password = this.password;//bcrypt.compareSync(password, this.password);
+UsersSchema.statics.findByCredentials = async (email,password) => {
+  const user = await User.findOne({email}) 
+  console.log(user);
+  
+  if(user === null){
+      return 'user doesn\'t exist'
+  }
+  
+  if(user.password !== password){
+      return 'wrong password'
+  }
 
-}
+  return user
 
-module.exports = mongoose.model('Users',UsersSchema);
+}   
+
+const User =  mongoose.model('Users',UsersSchema);
+module.exports = User

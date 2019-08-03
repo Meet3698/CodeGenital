@@ -436,31 +436,19 @@ app.post('/add',function(req,res){
     });
 });
 
-app.post('/authenticate', function(req, res) {
-  
-  Users.findOne({
-    'email': req.body.email
-  }, function(err, user) {
-    if (err) {
-      throw err;
-    } else {
-      if (!user) {
-        res.json({success:false});
-        
-      } else {
-        if (user.validPassword(req.body.password)) {
-          const sess = req.session;
-          sess.email = req.body.email;
-          user.validPassword(req.body.password)
-          console.log("Login Successful!");
-
-          res.redirect('index');
-        } else {
-          res.json({success : false})
-        }
-      }
+app.post('/authenticate',async (req, res) => {
+    sess = req.session
+    const user = await Users.findByCredentials(req.body.email,req.body.password)
+    if(user == "user doesn\'t exist"){
+      res.send(user)
     }
-  });
+    else if(user == "wrong password"){
+      res.send(user)
+    }
+    else{
+      sess.email = req.body.email
+      res.redirect('/index')
+    }
 });
 
 http.listen(port, function(){

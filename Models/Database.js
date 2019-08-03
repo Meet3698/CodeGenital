@@ -16,7 +16,7 @@ email: {
 
 password: {
   type: String,
-  required: true,
+  required: true
   // minlength: 8
 },
 

@@ -38,7 +38,7 @@ mongoose.connect('mongodb+srv://meet:Meet@3698@anonymous-edqd9.mongodb.net/CodeG
 mongoose.Promise = global.Promise;
 
 let gfs;
-const conn = mongoose.createConnection('mongodb+srv://meet:Meet@3698@anonymous-edqd9.mongodb.net/CodeGenital?retryWrites=true&w=majority',{useNewUrlParser:true});
+const conn = mongoose.createConnection('mongodb+srv://meet:<password>@anonymous-edqd9.mongodb.net/CodeGenital?retryWrites=true&w=majority',{useNewUrlParser:true});
 
 conn.once('open',function(){
   gfs = Grid(conn.db,mongoose.mongo);
@@ -52,7 +52,7 @@ app.use(cors());
 app.use(methodOverride('_method'));
 
 const storage = new GridFsStorage({
-  url: 'mongodb+srv://meet:Meet@3698@anonymous-edqd9.mongodb.net/CodeGenital?retryWrites=true&w=majority',
+  url: 'mongodb+srv://meet:<password>@anonymous-edqd9.mongodb.net/CodeGenital?retryWrites=true&w=majority',
   file: (req, file) => {
     return new Promise((resolve, reject) => {
       crypto.randomBytes(16, (err, buf) => {

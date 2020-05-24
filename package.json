@@ -23,7 +23,7 @@
     "formidable": "^1.2.1",
     "gridfs-stream": "^1.1.1",
     "method-override": "^3.0.0",
-    "mongoose": "^5.4.0",
+    "mongoose": "^5.7.5",
     "morgan": "^1.9.1",
     "move-file": "^1.2.0",
     "multer": "^1.4.1",

@@ -11,7 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "alert-node": "^1.2.3",
-    "bcrypt": "^3.0.4",
+    "bcrypt": "^5.0.0",
     "body-parser": "^1.18.3",
     "compile-run": "^2.3.0",
     "compilex": "^0.7.4",
